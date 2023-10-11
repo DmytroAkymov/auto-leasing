@@ -93,10 +93,12 @@ Description: This is a Auto template for my WordPress site.
   <section class="benefits">
     <div class="container">
       <div class="benefits__inner">
-        <img data-wow-delay="2s" class="benefits__images wow animate__fadeInUp" src="<?php bloginfo('template_url'); ?>/assets/images/car.png" alt="car">
+        
+        <img data-wow-delay="2s" class="benefits__images wow animate__fadeInUp" src="<?php the_field('benefits-img'); ?>" alt="car">
         <div class="benefits__content">
           <h2 class="title benefits__title">ПОЧЕМУ МЫ?</h2>
-          <ul class="benefits__list">
+          <?php the_field('benefits-text'); ?>
+          <!-- <ul class="benefits__list">
             <li class="benefits__item">
               <p class="benefits__item-num">650</p>
               <p class="benefits__item-title">успешно доставленных авто</p>
@@ -118,7 +120,7 @@ Description: This is a Auto template for my WordPress site.
                 Онлайн отчетность. Вы всегда в курсе статуса подбора вашего авто. Фото и видео отчет
               </p>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </div>
@@ -137,9 +139,10 @@ global $post;
 
 $myposts = get_posts( [
 	'numberposts' => -1,
-	'category_name' => 'slider',
-  'orderby' => 'rand',
-	'post_type' => 'post',
+	// 'category_name' => 'slider',
+  // 'orderby' => 'rand',
+	// 'post_type' => 'post',
+  'category' => 3,
 ] );
 
 foreach( $myposts as $post ){
